@@ -1,3 +1,12 @@
+0.003   2017-04-03 (PERLANCAR)
+
+        - Add participant: Algorithm::Dependency.
+
+        - Fix Sort::Topological participant code.
+
+        - Add some cyclic datasets (not enabled by default).
+
+
 0.002   2017-01-25 (PERLANCAR)
 
 	- No functional changes.
