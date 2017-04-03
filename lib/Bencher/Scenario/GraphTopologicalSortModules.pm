@@ -12,15 +12,20 @@ our $scenario = {
     modules => {
     },
     participants => [
-        {
-            module => 'Sort::Topological',
-            function => 'toposort',
-            code_template  => 'my $graph = <graph>; Sort::Topological::toposort(sub { @{ $graph->{shift} || [] } }, <unsorted>)',
-            result_is_list => 1,
-        },
+        #{
+        #    module => 'Sort::Topological',
+        #    function => 'toposort',
+        #    code_template  => 'my $graph = <graph>; Sort::Topological::toposort(sub { @{ $graph->{shift} || [] } }, <unsorted>)',
+        #    result_is_list => 1,
+        #},
         {
             fcall_template => 'Data::Graph::Util::toposort(<graph>, <unsorted>)',
             result_is_list => 1,
+        },
+        {
+            module => 'Algorithm::Dependency',
+            helper_modules => ['Algorithm::Dependency::Source::HoA'],
+            code_template => 'my $deps = Algorithm::Dependency::Source::HoA->new(<graph>); my $dep = Algorithm::Dependency->new(source=>$deps); $dep->schedule_all',
         },
     ],
 
@@ -38,6 +43,7 @@ our $scenario = {
                 },
                 unsorted => ['z', 'a', 'x', 'c', 'b', 'y'],
             },
+            result => ['a', 'b', 'c', 'x', 'y', 'z'],
         },
     ],
 };
