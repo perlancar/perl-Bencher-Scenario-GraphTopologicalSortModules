@@ -31,7 +31,14 @@ our $scenario = {
 
     datasets => [
         {
-            name => 'g1',
+            name => 'empty',
+            args => { graph => {}, unsorted => [] },
+            result => [],
+            include_by_default => 0, # croaks Algorithm::Dependency
+        },
+
+        {
+            name => 'g6',
             args => {
                 graph => {
                     'a' => [ 'b', 'c' ],
@@ -45,7 +52,9 @@ our $scenario = {
             },
             result => ['a', 'b', 'c', 'x', 'y', 'z'],
         },
-        # hangs Sort::Topological
+
+        # cyclic datasets not included by default because they hang
+        # Sort::Topological
         {
             name => 'cyclic1',
             args => {
