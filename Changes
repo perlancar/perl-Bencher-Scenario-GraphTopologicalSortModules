@@ -1,3 +1,11 @@
+0.005   2019-02-14 (PERLANCAR)
+
+        - No functional changes.
+
+        - [dist] Rebuild with updated PWP:Bencher::Scenario which mentions
+          datasets not included by default.
+
+
 0.004   2019-02-14 (PERLANCAR)
 
         - Add more datasets: empty (not enabled by default because it croaks
