@@ -2,3 +2,4 @@ Bencher-Scenario-GraphTopologicalSortModules-*
 .build
 *~
 nytprof*
+.DS_Store
